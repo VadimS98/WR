@@ -1,0 +1,41 @@
+<h:form>
+<table>
+
+<tr>
+<td><h:inputText value="#{orderBean.name}"/></td>
+<td><h:inputText value="#{orderBean.quantity}"/></td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Price</td>
+</tr>
+<tr>
+<td>
+<h:commandButton value="CreateThing"  action="#{orderBean.createThing()}"/>
+</td>
+
+<td>
+<h:commandButton value="CreateOrder" action="#{orderBean.createOrder()}"/>
+</td>
+</tr>
+</table>
+
+</h:form>
+
+<h:dataTable value="#{orderBean.things}" var="thing">
+<h:column>
+
+
+<h:outputText value="#{thing.name}" />
+
+</h:column>
+<h:column>
+<h:outputText value="#{thing.quantity}" />
+</h:column>
+
+<h:column>
+
+<h:commandButton value="Add" action="#{orderBean.addThing(thing)}" />
+
+</h:column>
+</h:dataTable>
